@@ -6,34 +6,9 @@ import sys
 import autolens as al
 import autolens.plot as aplt
 
-"""
-__Colab SETUP__
-"""
-packages = [
-    # Core stack
-    "autoconf",
-    "autofit",
-    "autoarray",
-    "autogalaxy",
-    "autolens",
-    # Notebook/runtime extras commonly used across workspaces
-    "pyvis==0.3.2",
-    "dill==0.4.0",
-    "jaxnnls",
-    "pyprojroot==0.2.0",
-    "nautilus-sampler==1.0.4",
-    "timeout_decorator==0.5.0",
-    "anesthetic==2.8.14",
-]
 
-# Identical JAX performance tweak.
-os.environ["XLA_FLAGS"] = "--xla_disable_hlo_passes=constant_folding"
 
-subprocess.check_call(
-    [sys.executable, "-m", "pip", "install", *packages, "--no-deps"]
-)
-
-workspace_path = Path(f"{os.sep}")
+workspace_path = Path(os.getcwd())
 
 dataset_type = "imaging"
 
